@@ -3,10 +3,10 @@
 3    package="com.baseflow.geolocator" >
 4
 5    <uses-sdk android:minSdkVersion="16" />
-5-->/opt/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.2.1/android/src/main/AndroidManifest.xml
+5-->/Users/nini/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.2.1/android/src/main/AndroidManifest.xml
 6
 7    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-7-->/opt/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.2.1/android/src/main/AndroidManifest.xml:3:5-78
-7-->/opt/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.2.1/android/src/main/AndroidManifest.xml:3:22-76
+7-->/Users/nini/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.2.1/android/src/main/AndroidManifest.xml:3:5-78
+7-->/Users/nini/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.2.1/android/src/main/AndroidManifest.xml:3:22-76
 8
 9</manifest>
