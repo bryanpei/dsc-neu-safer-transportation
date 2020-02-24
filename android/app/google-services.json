@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "409847920655",
+    "firebase_url": "https://safepath-d0e73.firebaseio.com",
+    "project_id": "safepath-d0e73",
+    "storage_bucket": "safepath-d0e73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409847920655:android:214859ef33d7ea56054b7a",
+        "android_client_info": {
+          "package_name": "com.dscneu.safer_transportation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409847920655-go66emlsk893h402o1b30897sep50p4r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzqtcP3HxP1OlK7iyAFU0X0ZhmL3xTeyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409847920655-go66emlsk893h402o1b30897sep50p4r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

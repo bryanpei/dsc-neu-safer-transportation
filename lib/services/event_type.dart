@@ -1,6 +1,6 @@
 // Event Type Enum
 
-enum EventType {
+enum EventTypeId {
   type1,
   type2,
   type3

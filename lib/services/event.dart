@@ -12,7 +12,7 @@ class Event {
   final dynamic locationGeo; // geo location.
   final int reportUserId;  // could be null if event is not reported by user.
   final EventSource source;
-  final EventType type;
+  final EventTypeId typeId;
 
   Event({
     this.intEventId,
@@ -22,7 +22,7 @@ class Event {
     this.locationGeo,
     this.reportUserId,
     this.source,
-    this.type,
+    this.typeId,
   });
 
   void updateEvent() {}
