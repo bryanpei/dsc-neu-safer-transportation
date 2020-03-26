@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:safer_transportation/models/user.dart';
 import 'package:safer_transportation/routes.dart';
+import 'package:safer_transportation/services/authentification/auth.dart';
+import 'package:safer_transportation/screens/wrapper.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,9 +11,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+    return StreamProvider<User>.value(
+        value: AuthService().user,
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -19,9 +26,13 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      routes: routes,
+          primarySwatch: Colors.blue,
+
+        ),
+          routes: routes,
+          home: Wrapper(),
+        ),
+//
     );
   }
 }
