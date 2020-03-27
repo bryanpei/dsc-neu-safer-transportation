@@ -25,9 +25,5 @@ class Wrapper extends StatelessWidget {
     }
     // If logged in, show home screen
 
-//    print(user);
-
-
-//    return
   }
 }

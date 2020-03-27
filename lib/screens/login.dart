@@ -18,6 +18,7 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   var userIDInput = TextEditingController();
   var userPassword = TextEditingController();
+  String error = "";
 
 
 
@@ -112,11 +113,33 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           MaterialButton(
-//
                               onPressed: () async {
-                                if (_formKey.currentState.validate())
-                              print("username: " + userIDInput.text);
-                              print("password: " + userPassword.text);
+                                dynamic result = await _auth.signInWithEmailAndPassWord(userIDInput.text, userPassword.text);
+
+                                if (result == null) {
+                                  if (userIDInput.text.isEmpty) {
+                                    setState(() {
+                                      error = 'Please supply a valid email';
+                                  });
+
+                                  } else if (userPassword.text.isEmpty) {
+
+                                    setState(() {
+                                      error = 'Password cannot be empty';
+                                  });
+
+                                  } else {
+                                    setState(() {
+                                      error =
+                                      "Could not sign in with the credentials";
+                                    });
+                                  }
+                                  return result;
+                                } else {
+                                  return result;
+
+    }
+
                               },
                             minWidth: 150.0,
                             color: Colors.lightGreen,
@@ -169,6 +192,7 @@ class _LoginState extends State<Login> {
                                 print('signed in');
                                 print("User Id is: " + result.uid);
                               }
+
                             },
                             minWidth: 150,
                             color: Colors.red,
@@ -185,10 +209,14 @@ class _LoginState extends State<Login> {
                               ),
                               ),
                           ),
-//
-//
-//                              }
-//                  )
+
+//                           Display error, if any
+                          SizedBox(height:12.0),
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                          ),
+
                         ],
                       ),
                     ),

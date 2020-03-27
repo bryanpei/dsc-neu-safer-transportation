@@ -87,7 +87,6 @@ class _SignUpState extends State<SignUp> {
                             controller: userEmail,
                             autocorrect: false,
                             autofocus: false,
-//                            obscureText: true,
                             style: TextStyle(
                               fontSize: 20.0,
                             ),
@@ -130,22 +129,7 @@ class _SignUpState extends State<SignUp> {
                                 contentPadding: EdgeInsets.all(15.0)
                             ),
                           ),
-//                          TextField(
-//                            controller: userIDInput,
-//                            autocorrect: false,
-//                            autofocus: false,
-//                            obscureText: true,
-//                            style: TextStyle(
-//                              fontSize: 20.0,
-//                            ),
-//                            decoration: InputDecoration(
-//                                hintText: "UserID",
-//                                border: InputBorder.none,
-//                                filled: true,
-//                                fillColor: Colors.grey[200],
-//                                contentPadding: EdgeInsets.all(15.0)
-//                            ),
-//                          ),
+
                           Padding(
                             padding: EdgeInsets.all(15.0),
                             child: Row(
@@ -153,7 +137,7 @@ class _SignUpState extends State<SignUp> {
                               children: <Widget>[
                                 FlatButton.icon(
                                   onPressed: () {
-//                                    Authenticate();
+
                                   },
                                     icon: Icon(Icons.favorite,
                                         color: Colors.white),
@@ -163,13 +147,6 @@ class _SignUpState extends State<SignUp> {
                                       ),
                                     ),
                                 ),
-//                                Text(
-//                                    "Already have an account?",
-//                                    style: TextStyle(
-//                                        fontSize: 14.0,
-//                                        fontWeight: FontWeight.w700
-//                                    )
-//                                )
                               ],
                             ),
                           ),
@@ -178,12 +155,6 @@ class _SignUpState extends State<SignUp> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
-//                                Text(
-//                                    "Forgot Password ?",
-//                                    style: TextStyle(
-//                                        fontSize: 14.0,
-//                                        fontWeight: FontWeight.w700
-//                                    ))
                               ],
                             ),
                           ),
@@ -202,7 +173,6 @@ class _SignUpState extends State<SignUp> {
                                 print("error");
                                 return null;
                               }
-
 
                               widget.toggleView();
                             },
@@ -223,7 +193,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
 
-//                  )
+
                         ],
                       ),
                     ),
