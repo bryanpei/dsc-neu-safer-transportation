@@ -1,8 +1,8 @@
 // Event class that stores all related
 // information of a single event.
 
-import 'package:safer_transportation/services/event_type.dart';
-import 'package:safer_transportation/services/event_source.dart';
+import 'package:safer_transportation/services/models/event_type.dart';
+import 'package:safer_transportation/services/models/event_source.dart';
 
 class Event {
   final int intEventId;
