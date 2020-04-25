@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:safer_transportation/models/user.dart';
+import 'package:safer_transportation/services/models/user.dart';
 
 class AuthService {
 

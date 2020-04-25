@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safer_transportation/services/event.dart';
+import 'package:safer_transportation/services/models/event.dart';
 
 class Menu extends StatelessWidget {
   @override

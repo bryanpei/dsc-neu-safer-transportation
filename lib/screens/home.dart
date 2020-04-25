@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:safer_transportation/services/authentification/auth.dart';
-import 'package:safer_transportation/services/event.dart';
+import 'package:safer_transportation/services/models/event.dart';
 
 class Home extends StatefulWidget {
 

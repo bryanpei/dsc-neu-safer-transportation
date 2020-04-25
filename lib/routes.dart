@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:safer_transportation/screens/home.dart';
 import 'package:safer_transportation/screens/login.dart';
+import 'package:safer_transportation/screens/menu.dart';
 import 'package:safer_transportation/screens/signup.dart';
 import 'package:safer_transportation/screens/profile.dart';
 import 'package:safer_transportation/screens/report.dart';

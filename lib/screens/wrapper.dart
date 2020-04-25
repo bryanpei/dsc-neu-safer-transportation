@@ -6,7 +6,7 @@
 //import 'dart:js_util';
 
 import 'package:provider/provider.dart';
-import 'package:safer_transportation/models/user.dart';
+import 'package:safer_transportation/services/models/user.dart';
 import 'package:safer_transportation/screens/home.dart';
 import 'package:safer_transportation/screens/authenticate/authenticate.dart';
 import 'package:flutter/material.dart';

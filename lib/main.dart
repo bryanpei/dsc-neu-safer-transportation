@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:safer_transportation/models/user.dart';
+import 'package:safer_transportation/services/models/user.dart';
 import 'package:safer_transportation/routes.dart';
 import 'package:safer_transportation/services/authentification/auth.dart';
 import 'package:safer_transportation/screens/wrapper.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
 
         ),
           routes: routes,
-          home: Wrapper(),
+//          home: Wrapper(),
         ),
 //
     );

@@ -1,6 +1,6 @@
 // A single event_card widget
 import 'package:flutter/material.dart';
-import 'package:safer_transportation/services/event.dart';
+import 'package:safer_transportation/services/models/event.dart';
 
 class EventCard extends StatefulWidget {
 
