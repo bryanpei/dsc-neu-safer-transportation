@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:safer_transportation/screens/authenticate/authenticate.dart';
 import 'package:safer_transportation/services/authentification/auth.dart';
 import 'package:safer_transportation/models/user.dart';
+import 'package:safer_transportation/shared/loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
@@ -24,7 +25,7 @@ class _SignUpState extends State<SignUp> {
   bool loading = false;
 
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       resizeToAvoidBottomPadding: true,
 
       body: Stack(
@@ -103,10 +104,10 @@ class _SignUpState extends State<SignUp> {
                               borderSide: BorderSide(color: Colors.grey),
                             ),
                           ),
-                          validator: (val) =>
+                          validator: (val)    =>
 
                           val.isEmpty
-                              ? 'Enter an email'
+                              ? 'Enter a valid email address'
                               : null,
                           onChanged: (val) {
                             setState(() => email = val);
@@ -169,7 +170,7 @@ class _SignUpState extends State<SignUp> {
                     if (result == null) {
                       setState(() {
                         loading = false;
-                        error = "Could not sign in with the credentials";
+                        error = "Could not sign up with the credentials";
                       });
                     }
 
