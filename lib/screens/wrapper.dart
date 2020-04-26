@@ -16,6 +16,8 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final user = Provider.of<User>(context); // state of user, logged in/out
+
+
     // If user is not logged in:
 
     if (user == null) {
