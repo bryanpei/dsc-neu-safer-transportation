@@ -1,14 +1,12 @@
-// Home screen
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:safer_transportation/components/floating_search_bar.dart';
+import 'package:safer_transportation/components/menu.dart';
 import 'package:safer_transportation/services/authentification/auth.dart';
-import 'package:safer_transportation/services/models/event.dart';
 
 class Home extends StatefulWidget {
-
-
-
   @override
   _HomeState createState() => _HomeState();
 }
@@ -38,76 +36,27 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Navigation'),
+      drawer: Menu(),
+      body: Stack(
+        children: <Widget>[
+          GoogleMap(
+            onMapCreated: _onMapCreated,
+            padding: EdgeInsets.fromLTRB(10, 100, 10, 0),
+            mapType: MapType.normal,
+            initialCameraPosition: CameraPosition(
+              target: _center,
+              zoom: 11.0,
             ),
-            ListTile(
-              title: Text('login'),
-              onTap: () {
-                Navigator.pushNamed(context, '/login');
-              },
-            ),
-            ListTile(
-              title: Text('signup'),
-              onTap: () {
-                Navigator.pushNamed(context, '/signup');
-              },
-            ),
-            ListTile(
-              title: Text('profile'),
-              onTap: () {
-                Navigator.pushNamed(context, '/profile');
-              },
-            ),
-            ListTile(
-              title: Text('report'),
-              onTap: () {
-                Navigator.pushNamed(context, '/report');
-              },
-            ),
-            ListTile(
-              title: Text('settings'),
-              onTap: () {
-                Navigator.pushNamed(context, '/settings');
-              },
-            ),
-            ListTile(
-              title: Text('event card'),
-              onTap: () {
-                Navigator.pushNamed(context, '/eventcard', arguments: {
-                  'event': Event()});
-              },
-            )
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        title: Text('Home page'),
-        actions: <Widget>[
-          FlatButton.icon(
-              onPressed: () async {
-                await _auth.signOut();
-              },
-              icon: Icon(Icons.person, color: Colors.white),
-              label: Text("logout",
-                  style: TextStyle(color: Colors.white)))
-
+            compassEnabled: true,
+            zoomControlsEnabled: false,
+            zoomGesturesEnabled: true,
+            myLocationEnabled: true,
+            myLocationButtonEnabled: true,
+          ),
+          FloatingSearchBar()
         ],
-//        centerTitle: true,
-        backgroundColor: Colors.green[700],
       ),
-      body: GoogleMap(
-        onMapCreated: _onMapCreated,
-        initialCameraPosition: CameraPosition(
-          target: _center,
-          zoom: 11.0,
-        ),
-      ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }
