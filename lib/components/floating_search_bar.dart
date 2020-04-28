@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class FloatingSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Positioned(
       top: 50,
       left: 20,
