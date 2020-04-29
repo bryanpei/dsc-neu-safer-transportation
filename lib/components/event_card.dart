@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:safer_transportation/services/models/event.dart';
-import 'EventInfoCard.dart';
+import 'event_info_card.dart';
 import 'event_Info.dart';
 import 'event_type.dart';
 
