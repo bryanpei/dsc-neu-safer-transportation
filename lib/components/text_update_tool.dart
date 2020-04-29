@@ -48,7 +48,7 @@ class _TextUpdateState extends State<TextUpdate> {
                 ),
                 MaterialButton(
                   onPressed: () async {
-                    print(_controller.text);
+                    print("edit page"+_controller.text);
                     Navigator.pop(context, _controller.text);
                   },
                   minWidth: 150,
