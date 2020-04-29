@@ -36,12 +36,13 @@ class _AlertsState extends State {
             ),
             drawer: Menu(),
             body: Center(
-                child: Column(children: <Widget>[
+                child: Column(
+                  children: <Widget>[
                   // The header, which includes Alerts and toggle switch
                   Container(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      //crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         // The header: Alerts
                         Container(
@@ -58,36 +59,44 @@ class _AlertsState extends State {
                       ],
                     ),
                   ),
-                  // The alerts setting, which would be hidden when switch is OFF
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
+                  // Container for the 'Type' header
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(left: 20.0),
+                    child: Text('Type', style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black54
+                    ),),
+                  ),
+                    // Container for the alerts setting
                     Container(
-                      padding: EdgeInsets.only(right: 20.0),
-                      child: Text('Type', style: TextStyle(
-                        fontSize: 16.0,
-                        color: Colors.black54
-                      ),),
-                    ),
-                    Row( children: <Widget>[
-                      Checkbox(
-                        value: checkBoxValue,
-                        activeColor: Colors.black,
-                        onChanged: (bool value) {
-                          setState(() {
-                            checkBoxValue = value;
-                          });
-                        },
-                      ),
-                      Text('Syringe', style: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black
-                      ),)
-                    ],
-                    )
-                  ],)
-                ],)
+                        child: Row(
+                          children: <Widget>[
+                          Checkbox(
+                            value: checkBoxValue,
+                            activeColor: Colors.black,
+                            onChanged: (bool value) {
+                              setState(() {
+                                checkBoxValue = value;
+                              });
+                              },
+                          ),
+                          Container(
+                            width: 22.0,
+                            height: 22.0,
+                            child: SizedBox(
+                              child: Image.asset('assets/images/icon-syringe.png')
+                            )
+                          ),
+                          Container(
+                              child: Text('Syringe', style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.black
+                              ),)
+                          )
+                        ],
+                        )
+                    )],)
             )
         )
     );
