@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
               zoom: 11.0,
             ),
             compassEnabled: true,
-            zoomControlsEnabled: false,
+//            zoomControlsEnabled: false,
             zoomGesturesEnabled: true,
             myLocationEnabled: true,
             myLocationButtonEnabled: true,
