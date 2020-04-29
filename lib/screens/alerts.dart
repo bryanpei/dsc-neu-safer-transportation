@@ -19,6 +19,14 @@ class _AlertsState extends State {
 
   double sliderValue = 0.0;
 
+  void saveAlertsSetting() {
+    // TODO: Need to implement save button.
+    setState(() {
+      // Alert notifications should pop-up for checked alert types when user
+      // is within the set radius.
+      print("Alert preferences are saved");
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +36,7 @@ class _AlertsState extends State {
               backgroundColor: Colors.white,
               title: Text('Alerts',
                 style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 22.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.black
                 ),
@@ -56,7 +64,7 @@ class _AlertsState extends State {
                         Container(
                           margin: EdgeInsets.all(20.0),
                           child: Text('Alerts', style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 20.0,
                               color: Colors.black
                           )),
                         ),
@@ -304,7 +312,23 @@ class _AlertsState extends State {
                         }
                       ),
                     ),
-
+                    Container(
+                      child: RaisedButton(
+                        onPressed: () {
+                          saveAlertsSetting();
+                        },
+                        color: Colors.red,
+                        padding: EdgeInsets.only(
+                            left: 60.0,
+                            top: 10.0,
+                            right: 60.0,
+                            bottom: 10.0
+                        ),
+                        child: Text('Save', style: TextStyle(
+                            color: Colors.white
+                        ),),
+                      ),
+                    ),
                   ],
                 )
             )
@@ -363,28 +387,8 @@ class SwitchWidgetClass extends State {
               inactiveThumbColor: Colors.white,
               inactiveTrackColor: Colors.grey,
             )),
-
-//          Text('$textHolder', style: TextStyle(
-//              fontSize: 24,
-//              color: Colors.black54),
-//          )
     ]);
   }
-
-
-  // The checkboxes in the Alerts settings, which will be visible whenever
-  // toggle is switched to ON
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
