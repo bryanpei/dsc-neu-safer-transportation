@@ -17,6 +17,8 @@ class _AlertsState extends State {
   bool fightBox = false;
   bool otherBox = false;
 
+  double sliderValue = 0.0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +66,9 @@ class _AlertsState extends State {
                         )
                       ],
                     ),
+                  ),
+                  Container(
+                    child: SizedBox(height: 10)
                   ),
                   // Container for the 'Type' header
                   Container(
@@ -249,6 +254,57 @@ class _AlertsState extends State {
                           ],
                         )
                     ),
+                    // Spacer between Type and Radius
+                    SizedBox(height: 16),
+                    // Radius
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      margin: EdgeInsets.only(left: 20.0),
+                      child: Text('Radius', style: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.black54
+                      ),),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 50.0),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            child: Text('0', style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.black
+                            ),),
+                          ),
+                          Container(
+                            child: SizedBox(
+                              width: 220,
+                            ),
+                          ),
+                          Container(
+                            child: Text('20 miles', style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.black
+                            ),),
+                          )
+                        ],
+                      )
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(right: 100.0),
+                      child: Slider(
+                          min: 0,
+                          max: 20,
+                          activeColor: Colors.blueAccent,
+                          //inactiveColor: Colors.blue,
+                        value: sliderValue,
+                        onChanged: (value) {
+                            setState(() {
+                              sliderValue = value;
+                            });
+                        }
+                      ),
+                    ),
+
                   ],
                 )
             )
@@ -256,10 +312,6 @@ class _AlertsState extends State {
     );
   }
 }
-
-
-
-
 
 
 
@@ -307,7 +359,7 @@ class SwitchWidgetClass extends State {
               onChanged: toggleSwitch,
               value: switchControl,
               activeColor: Colors.blueAccent,
-              activeTrackColor: Colors.blueAccent,
+              activeTrackColor: Colors.blue[200],
               inactiveThumbColor: Colors.white,
               inactiveTrackColor: Colors.grey,
             )),
