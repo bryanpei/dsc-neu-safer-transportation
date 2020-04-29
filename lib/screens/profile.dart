@@ -32,9 +32,15 @@ class _ProfileState extends State<Profile> {
                   color: Colors.white,
                   child: Padding(
                       padding: EdgeInsets.all(20),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                      child: Stack(
                           children: <Widget>[
+                            Align(
+                              alignment: Alignment(-0.45, 0.0),
+                              child: Icon(
+                                // edit icon
+                                  Icons.edit
+                              )
+                            ),
                             Padding(
                               //profile pic
                               padding: EdgeInsets.all(10),
