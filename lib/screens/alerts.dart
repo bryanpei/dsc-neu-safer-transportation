@@ -10,7 +10,13 @@ class Alerts extends StatefulWidget {
 class _AlertsState extends State {
 
   bool alertControl = false;
-  bool checkBoxValue = false;
+  bool syringeBox = false;
+  bool accidentBox = false;
+  bool noiseBox = false;
+  bool fireBox = false;
+  bool fightBox = false;
+  bool otherBox = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -68,16 +74,17 @@ class _AlertsState extends State {
                       color: Colors.black54
                     ),),
                   ),
-                    // Container for the alerts setting
+                    // Containers for the alerts setting
                     Container(
+                      // Syringe Checkbox
                         child: Row(
                           children: <Widget>[
                           Checkbox(
-                            value: checkBoxValue,
+                            value: syringeBox,
                             activeColor: Colors.black,
                             onChanged: (bool value) {
                               setState(() {
-                                checkBoxValue = value;
+                                syringeBox = value;
                               });
                               },
                           ),
@@ -96,12 +103,76 @@ class _AlertsState extends State {
                           )
                         ],
                         )
-                    )],)
+                    ),
+                    Container(
+                      // Car Accident Checkbox
+                        child: Row(
+                          children: <Widget>[
+                            Checkbox(
+                              value: accidentBox,
+                              activeColor: Colors.black,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  accidentBox = value;
+                                });
+                                },
+                            ),
+                            Container(
+                                width: 22.0,
+                                height: 22.0,
+                                child: SizedBox(
+                                    child: Image.asset('assets/images/icon-car.png')
+                                )
+                            ),
+                            Container(
+                                child: Text('Car accident', style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.black
+                                ),)
+                            )
+                          ],
+                        )
+                    ),
+                    Container(
+                      // Noise Checkbox
+                        child: Row(
+                          children: <Widget>[
+                            Checkbox(
+                              value: noiseBox,
+                              activeColor: Colors.black,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  noiseBox = value;
+                                });
+                                },
+                            ),
+                            Container(
+                                width: 22.0,
+                                height: 22.0,
+                                child: SizedBox(
+                                    child: Image.asset('assets/images/icon-protest.png')
+                                )
+                            ),
+                            Container(
+                                child: Text('Noise', style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.black
+                                ),)
+                            )
+                          ],
+                        )
+                    ),
+                  ],
+                )
             )
         )
     );
   }
 }
+
+
+
+
 
 
 
