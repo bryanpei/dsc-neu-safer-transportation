@@ -162,6 +162,93 @@ class _AlertsState extends State {
                           ],
                         )
                     ),
+                    Container(
+                      // Fire Checkbox
+                        child: Row(
+                          children: <Widget>[
+                            Checkbox(
+                              value: fireBox,
+                              activeColor: Colors.black,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  fireBox = value;
+                                });
+                              },
+                            ),
+                            Container(
+                                width: 22.0,
+                                height: 22.0,
+                                child: SizedBox(
+                                    child: Image.asset('assets/images/icon-fire.png')
+                                )
+                            ),
+                            Container(
+                                child: Text('Fire', style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.black
+                                ),)
+                            )
+                          ],
+                        )
+                    ),
+                    Container(
+                      // Noise Checkbox
+                        child: Row(
+                          children: <Widget>[
+                            Checkbox(
+                              value: fightBox,
+                              activeColor: Colors.black,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  fightBox = value;
+                                });
+                              },
+                            ),
+                            Container(
+                                width: 22.0,
+                                height: 22.0,
+                                child: SizedBox(
+                                    child: Image.asset('assets/images/icon-fight.png')
+                                )
+                            ),
+                            Container(
+                                child: Text('Street Fight', style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.black
+                                ),)
+                            )
+                          ],
+                        )
+                    ),
+                    Container(
+                      // Other Checkbox
+                        child: Row(
+                          children: <Widget>[
+                            Checkbox(
+                              value: otherBox,
+                              activeColor: Colors.black,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  otherBox = value;
+                                });
+                              },
+                            ),
+                            Container(
+                                width: 22.0,
+                                height: 22.0,
+                                child: SizedBox(
+                                    child: Image.asset('assets/images/icon-other.png')
+                                )
+                            ),
+                            Container(
+                                child: Text('Other', style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.black
+                                ),)
+                            )
+                          ],
+                        )
+                    ),
                   ],
                 )
             )
