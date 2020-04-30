@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:safer_transportation/components/divider.dart';
 import 'package:safer_transportation/components/menu.dart';
 import 'package:safer_transportation/components/text_update_tool.dart';
+import 'package:safer_transportation/services/authentification/auth.dart';
 
 
 class Settings extends StatefulWidget {
@@ -304,8 +305,9 @@ class _SettingsState extends State<Settings> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    onTap: () {
-                      print("Signed out");
+                    onTap: () async {
+                        await AuthService().signOut();
+                        Navigator.popUntil(context, ModalRoute.withName('/'));
                     }),
               ),
             ) //Sign out
