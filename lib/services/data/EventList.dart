@@ -10,7 +10,7 @@ class EventList {
 
   void init() {
     events.add(Event(
-      typeId: 0,
+      typeId: 1,
       datetime: DateTime(2020, 3, 21, 21, 31, 59),
       locationH: '500 Boren Ave N, Seattle, WA 98109',
       locationGeo: LatLng(47.623164, -122.337193),
@@ -19,11 +19,11 @@ class EventList {
     ));
 
     events.add(Event(
-        typeId: 1,
+        typeId: 0,
         datetime: DateTime(2020, 3, 22, 20, 30, 08),
         locationH: '801-849 Republican St, Seattle, WA 98109',
         locationGeo: LatLng(47.623280, -122.340540),
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png',
+        imageUrl: 'https://www.colombolaw.com/wp-content/uploads/2019/06/minor-car-accident.jpg',
         reportUserId: null
     ));
 
@@ -32,7 +32,7 @@ class EventList {
         datetime: DateTime(2020, 3, 22, 19, 30, 50),
         locationH: '351 Boren Ave N, Seattle, WA 98109',
         locationGeo: LatLng(47.621527, -122.336232),
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png',
+        imageUrl: 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/10741/production/_108839376_fireongar1.jpg',
         reportUserId: null
     ));
 
@@ -41,7 +41,7 @@ class EventList {
         datetime: DateTime(2020, 3, 21, 21, 31, 59),
         locationH: 'Boren Ave N, Seattle, WA 98109',
         locationGeo: LatLng(47.620348, -122.336221),
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png',
+        imageUrl: 'https://thenypost.files.wordpress.com/2018/05/180511-used-syringes-street-san-francisco-01.jpg?quality=80&strip=all',
         reportUserId: null
     ));
   }

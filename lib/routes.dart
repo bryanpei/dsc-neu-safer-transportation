@@ -12,7 +12,7 @@ import 'package:safer_transportation/components/event_card.dart';
 import 'package:safer_transportation/screens/alerts.dart';
 
 final Map<String, WidgetBuilder> routes = {
-  '/': (BuildContext context) => Login(),
+//  '/': (BuildContext context) => Login(),
   '/profile': (BuildContext context) => Profile(),
   '/alerts': (BuildContext context) => Alerts(),
   '/signup': (BuildContext context) => SignUp(),
