@@ -19,8 +19,6 @@ class _LoginState extends State<Login> {
   var email = "";
   var password = "";
   bool loading = false;
-  var userIDInput = TextEditingController();
-  var userPassword = TextEditingController();
   String error = "";
 
 
