@@ -1,6 +1,7 @@
 // routes for the app
 
 import 'package:flutter/material.dart';
+import 'package:safer_transportation/screens/edit_info.dart';
 import 'package:safer_transportation/screens/home.dart';
 import 'package:safer_transportation/screens/login.dart';
 import 'package:safer_transportation/screens/tmp_main.dart';
@@ -21,4 +22,5 @@ final Map<String, WidgetBuilder> routes = {
   '/settings': (BuildContext context) => Settings(),
   '/eventcard': (BuildContext context) => EventCard(),
   '/map': (BuildContext context) => Home(),
+  '/edit': (BuildContext context) => EditInfo()
 };

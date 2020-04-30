@@ -24,6 +24,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
       resizeToAvoidBottomPadding: true,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Column(
             mainAxisAlignment: MainAxisAlignment.center,

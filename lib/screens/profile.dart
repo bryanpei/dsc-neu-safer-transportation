@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:safer_transportation/components/menu.dart';
+import 'package:safer_transportation/services/data/UserInfo.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -11,7 +12,6 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          // app bar
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.black),
           title: Text(
@@ -32,31 +32,33 @@ class _ProfileState extends State<Profile> {
                   color: Colors.white,
                   child: Padding(
                       padding: EdgeInsets.all(20),
-                      child: Stack(
-                          children: <Widget>[
-                            Align(
-                              alignment: Alignment(-0.45, 0.0),
-                              child: Icon(
-                                // edit icon
-                                  Icons.edit
-                              )
-                            ),
-                            Padding(
-                              //profile pic
-                              padding: EdgeInsets.all(10),
-                              child: Container(
-                                height: 100,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: ExactAssetImage(
-                                          'assets/images/user-profile-pic.png'),
-                                      fit: BoxFit.fill,
-                                    )),
+                      child: Container(
+                              child: Stack(
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    radius: 50,
+                                    backgroundImage: NetworkImage(UserInfo.avatarUrl),
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 70,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        shape: BoxShape.circle
+                                      ),
+                                      child: IconButton(
+                                        color: Colors.white,
+                                        icon: Icon(Icons.edit),
+                                        onPressed: () {},
+                                      )
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          ]))),
+                  )
+              ),
               Container(
                 //boarder
                 decoration: BoxDecoration(
@@ -88,36 +90,52 @@ class _ProfileState extends State<Profile> {
                       Padding(
                         // name
                         padding: EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 15.0),
-                        child: Text(
-                          'John',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/edit', arguments: {
+                              'field': 'First Name',
+                            });
+                          },
+                          child: Text(
+                            UserInfo.firstName,
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
                       Padding(
                         // last name
                         padding: EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 6.0),
-                        child: Text(
-                          'Last Name',
-                          style: TextStyle(
-                            fontSize: 15.0,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w600,
+                        child: Container(
+                          child: Text(
+                            'Last Name',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
                       Padding(
                         // name
                         padding: EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 15.0),
-                        child: Text(
-                          'Doe',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/edit', arguments: {
+                              'field': 'Last Name',
+                            });
+                          },
+                          child: Text(
+                            UserInfo.lastName,
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
@@ -156,12 +174,19 @@ class _ProfileState extends State<Profile> {
                       Padding(
                         // exact email
                         padding: EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 15.0),
-                        child: Text(
-                          'johndoe@gmail.com',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/edit', arguments: {
+                              'field': 'Email',
+                            });
+                          },
+                          child: Text(
+                            UserInfo.email,
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
@@ -180,12 +205,19 @@ class _ProfileState extends State<Profile> {
                       Padding(
                         // hided password
                         padding: EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 15.0),
-                        child: Text(
-                          '............',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/edit', arguments: {
+                              'field': 'Password',
+                            });
+                          },
+                          child: Text(
+                            '............',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -204,12 +236,19 @@ class _ProfileState extends State<Profile> {
                       Padding(
                         // exact phone number
                         padding: EdgeInsets.all(2),
-                        child: Text(
-                          '+1 (123) 456 789',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/edit', arguments: {
+                              'field': 'Phone',
+                            });
+                          },
+                          child: Text(
+                            UserInfo.phone,
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
