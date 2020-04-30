@@ -208,7 +208,6 @@ class _LoginState extends State<Login> {
                                   fontFamily: 'Lato',
                                   fontWeight: FontWeight.w800,
                                   color: Colors.white
-
                               ),
                             ),
                           ),
