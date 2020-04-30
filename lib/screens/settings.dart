@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safer_transportation/components/divider.dart';
 import 'package:safer_transportation/components/menu.dart';
 import 'package:safer_transportation/components/text_update_tool.dart';
 
@@ -94,14 +95,10 @@ class _SettingsState extends State<Settings> {
                                 ])),
                       ]),
                 )), //profile pic and info
+            DivideLine(),
             Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(
-                        color: Colors.grey,
-                      ))),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -227,15 +224,11 @@ class _SettingsState extends State<Settings> {
                       )
                     ]),
               ),
-            ), //Places
+            ),
+            DivideLine(),//Places
             Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(
-                        color: Colors.grey,
-                      ))),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -297,15 +290,11 @@ class _SettingsState extends State<Settings> {
                           ])),
                     ]),
               ),
-            ), //Safety
+            ),
+            DivideLine(),//Safety
             Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(
-                        color: Colors.grey,
-                      ))),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: InkWell(
                     child: Text(
                       'Sign out',
