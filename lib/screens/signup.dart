@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:safer_transportation/screens/authenticate/authenticate.dart';
 import 'package:safer_transportation/services/authentification/auth.dart';
-import 'package:safer_transportation/models/user.dart';
 import 'package:safer_transportation/shared/loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
