@@ -19,6 +19,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool expanded = false;
+  int selectedPin = -1;
   String imageUrlBase = 'assets/images/';
   var imageNames = ['icon-car.png', 'icon-fight.png', 'icon-fire.png',
                     'icon-protest.png', 'icon-syringe.png', 'icon-other.png',
@@ -49,17 +50,15 @@ class _HomeState extends State<Home> {
   }
 
   _handleTap(LatLng point) {
-//    setState(() {
-//      _markers.add(Marker(
-//        markerId: MarkerId(point.toString()),
-//        position: point,
-//        infoWindow: InfoWindow(
-//          title: 'I am a marker',
-//        ),
-//        icon:
-//        BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
-//      ));
-//    });
+    if (selectedPin == -1) {
+      return;
+    }
+    print(selectedPin);
+    Navigator.pushNamed(context, '/report', arguments: {
+      'selectedPin': selectedPin,
+      'point': point,
+      'eventList': eventList
+    });
   }
 
   Future<Uint8List> getBytesFromAsset(String path, int width) async {
@@ -76,6 +75,7 @@ class _HomeState extends State<Home> {
 
   _createMarkers() {
     for(String name in imageNames) {
+      print(name);
       getBitmapDescriptorFromAssetBytes(imageUrlBase + name, 80).then((onValue) {
         markerIcons.add(onValue);
       });
@@ -86,7 +86,6 @@ class _HomeState extends State<Home> {
     if (markerIcons.length == 0) {
       await _createMarkers();
     }
-    print(markerIcons.length);
     _markers.clear();
     for(Event e in eventList.events) {
       _markers.add(Marker(
@@ -169,6 +168,7 @@ class _HomeState extends State<Home> {
                                   onTap: () {
                                     setState(() {
                                       selected = [false, false, false, false, false, false];
+                                      selectedPin = i;
                                       selected[i] = true;
                                     });
                                   },

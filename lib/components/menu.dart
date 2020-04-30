@@ -19,40 +19,39 @@ class Menu extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('signup'),
+            title: Text('Signup'),
             onTap: () {
               Navigator.pushNamed(context, '/signup');
             },
           ),
           ListTile(
-            title: Text('profile'),
+            title: Text('Profile'),
             onTap: () {
               Navigator.pushNamed(context, '/profile');
             },
           ),
           ListTile(
-            title: Text('alerts'),
+            title: Text('Alerts'),
             onTap: () {
               Navigator.pushNamed(context, '/alerts');
             },
           ),
           ListTile(
-            title: Text('report'),
+            title: Text('Report'),
             onTap: () {
               Navigator.pushNamed(context, '/report');
             },
           ),
           ListTile(
-            title: Text('settings'),
+            title: Text('Settings'),
             onTap: () {
               Navigator.pushNamed(context, '/settings');
             },
           ),
           ListTile(
-            title: Text('event card'),
+            title: Text('Home'),
             onTap: () {
-              Navigator.pushNamed(context, '/eventcard', arguments: {
-                'event': Event()});
+              Navigator.pushNamed(context, '/map');
             },
           )
         ],
