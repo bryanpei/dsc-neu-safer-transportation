@@ -10,8 +10,8 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="safer_transportation"
-        android:icon="@mipmap/ic_launcher">
+        android:label="SafePath"
+        android:icon="@mipmap/launcher_icon">
 
         <!-- Google Map API key -->
         <meta-data android:name="com.google.android.geo.API_KEY"
