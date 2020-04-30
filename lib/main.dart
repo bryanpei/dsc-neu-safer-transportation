@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
 
         ),
           routes: routes,
-//          home: Wrapper(),
+          home: Wrapper(),
         ),
 //
     );
