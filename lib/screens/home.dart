@@ -73,10 +73,9 @@ class _HomeState extends State<Home> {
     return BitmapDescriptor.fromBytes(imageData);
   }
 
-  _createMarkers() {
+  _createMarkers() async {
     for(String name in imageNames) {
-      print(name);
-      getBitmapDescriptorFromAssetBytes(imageUrlBase + name, 80).then((onValue) {
+      await getBitmapDescriptorFromAssetBytes(imageUrlBase + name, 80).then((onValue) {
         markerIcons.add(onValue);
       });
     }
