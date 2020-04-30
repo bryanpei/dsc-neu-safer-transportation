@@ -26,25 +26,13 @@ class _LoginState extends State<Login> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-
       resizeToAvoidBottomPadding: true,
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
 
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Image.asset(
-              'assets/images/white.jpg', // Background image goes here
-              fit: BoxFit.cover,
-            ),
-          ),
-          Column(
+      body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(15.0),
-              ),
               Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Image.asset(
@@ -56,10 +44,10 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                        "       Sign In",
+                        "Sign In",
                         style: TextStyle(
                           fontSize: 36.0,
                           fontWeight: FontWeight.w700,
@@ -69,23 +57,7 @@ class _LoginState extends State<Login> {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "                  Hi there! Nice to see you again.",
-                      style: TextStyle(
-                        color: Colors.grey,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Lato'
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
               Padding(
                 padding: EdgeInsets.all(10.0),
               ),
@@ -190,6 +162,10 @@ class _LoginState extends State<Login> {
                           loading = false;
                           error = "Could not sign in with the credentials";
                         });
+                      } else {
+                        Navigator.pushNamed(context, '/map', arguments: {
+                          'uid': result.uid
+                        });
                       }
 
                     }
@@ -227,7 +203,6 @@ class _LoginState extends State<Login> {
                     print('signed in');
                     print("User Id is: " + result.uid);
                   }
-
                 },
                 minWidth: 250.0,
                 color: Colors.white,
@@ -265,7 +240,8 @@ class _LoginState extends State<Login> {
                 )
                 ),
                 onTap: () {
-                  widget.toggleView();}
+                  widget.toggleView();
+                }
               ),
               SizedBox(height:12.0),
 
@@ -274,11 +250,8 @@ class _LoginState extends State<Login> {
                 error,
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
               ),
-
             ],
           ),
-        ],
-      ),
     );
   }
 }

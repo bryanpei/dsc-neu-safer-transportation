@@ -40,16 +40,6 @@ class EventInfoCard extends StatelessWidget {
             title: Text("Reported by: "),
             subtitle: Text(info.reporter),
           ),
-
-          ButtonBar(
-            children: <Widget>[
-              FlatButton.icon(
-              onPressed: delete,
-              label: Text("Delete Event"),
-              icon: Icon(Icons.delete),
-              ),
-            ],
-          )
         ],
       ),
     );

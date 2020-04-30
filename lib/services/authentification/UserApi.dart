@@ -8,7 +8,7 @@ abstract class UserApi {
   bool authenticate(String username, String password);
 
   /// Fetch user's information with provided [userID].
-  /// map keys: [firstName], [lastName], [email], [phoneNumber]
+  /// map keys: [firstName], [lastName], [email], [phoneNumber], [avatarUrl]
   HashMap<String, String> fetchUserInfo(String userID);
 
   /// Fetch user's settings data with provided [userID]

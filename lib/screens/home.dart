@@ -18,6 +18,7 @@ class _HomeState extends State<Home> {
                     'icon-protest.png', 'icon-syringe.png', 'icon-other.png',
                     'logo.png'];
   var selected = [false, false, false, false, false, false];
+  Set<Marker> _markers = {};
   final AuthService _auth = AuthService();
   GoogleMapController mapController;
 
@@ -38,6 +39,22 @@ class _HomeState extends State<Home> {
     )));
   }
 
+  _handleTap(LatLng point) {
+    print(point.latitude);
+    print(point.longitude);
+    setState(() {
+      _markers.add(Marker(
+        markerId: MarkerId(point.toString()),
+        position: point,
+        infoWindow: InfoWindow(
+          title: 'I am a marker',
+        ),
+        icon:
+        BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
+      ));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,19 +65,22 @@ class _HomeState extends State<Home> {
             onMapCreated: _onMapCreated,
             padding: EdgeInsets.fromLTRB(10, 100, 10, 0),
             mapType: MapType.normal,
+            markers: _markers,
             initialCameraPosition: CameraPosition(
               target: _center,
               zoom: 11.0,
             ),
             compassEnabled: true,
-//            zoomControlsEnabled: false,
             zoomGesturesEnabled: true,
+            zoomControlsEnabled: false,
             myLocationEnabled: true,
             myLocationButtonEnabled: true,
+
+            onTap: _handleTap,
           ),
           FloatingSearchBar(),
           Positioned(
-            bottom: 50,
+            bottom: 65,
             right: 20,
             child: Container(
               height: 60,
@@ -130,7 +150,6 @@ class _HomeState extends State<Home> {
 
 class IconButton {
   static Widget build(String imageUrl, bool selected) {
-    print(imageUrl);
     return Container(
       padding: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
