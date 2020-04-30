@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safer_transportation/services/data/UserInfo.dart';
 import 'package:safer_transportation/services/models/event.dart';
 
 class Menu extends StatelessWidget {
@@ -10,50 +11,80 @@ class Menu extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text('Navigation'),
+            child: Column(
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 40.0,
+                  backgroundImage: NetworkImage('https://cdn.iconscout.com/icon/free/png-512/avatar-380-456332.png'),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 10.0, 0, 0),
+                  child: Text(
+                    UserInfo.firstName,
+                    style: TextStyle(
+                      fontSize: 30
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
           ListTile(
-            title: Text('login'),
+            title: Row(
+              children: <Widget>[
+                Container(
+                    padding: EdgeInsets.fromLTRB(0, 0, 15.0, 0),
+                    child: Icon(Icons.map)
+                ),
+                Text('Home'),
+              ],
+            ),
             onTap: () {
-              Navigator.pushNamed(context, '/login');
+              Navigator.pushNamed(context, '/map');
             },
           ),
           ListTile(
-            title: Text('Signup'),
-            onTap: () {
-              Navigator.pushNamed(context, '/signup');
-            },
-          ),
-          ListTile(
-            title: Text('Profile'),
+            title: Row(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 0, 15.0, 0),
+                    child: Icon(Icons.account_circle)
+                ),
+                Text('Profile'),
+              ],
+            ),
             onTap: () {
               Navigator.pushNamed(context, '/profile');
             },
           ),
           ListTile(
-            title: Text('Alerts'),
+            title: Row(
+              children: <Widget>[
+                Container(
+                    padding: EdgeInsets.fromLTRB(0, 0, 15.0, 0),
+                    child: Icon(Icons.error)
+                ),
+                Text('Alerts'),
+              ],
+            ),
             onTap: () {
               Navigator.pushNamed(context, '/alerts');
             },
           ),
           ListTile(
-            title: Text('Report'),
-            onTap: () {
-              Navigator.pushNamed(context, '/report');
-            },
-          ),
-          ListTile(
-            title: Text('Settings'),
+            title: Row(
+              children: <Widget>[
+                Container(
+                    padding: EdgeInsets.fromLTRB(0, 0, 15.0, 0),
+                    child: Icon(Icons.settings)
+                ),
+                Text('Settings'),
+              ],
+            ),
             onTap: () {
               Navigator.pushNamed(context, '/settings');
             },
           ),
-          ListTile(
-            title: Text('Home'),
-            onTap: () {
-              Navigator.pushNamed(context, '/map');
-            },
-          )
         ],
       ),
     );

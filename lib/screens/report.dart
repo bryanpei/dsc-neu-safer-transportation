@@ -19,7 +19,7 @@ class Report extends StatefulWidget {
 class _ReportState extends State<Report> {
   bool _select = false;
 
-  String _reportSelection = '';
+  String _reportSelection;
   List<Map> _reportJson = [
     {
       "image": 'assets/images/icon-car.png',
@@ -70,7 +70,7 @@ class _ReportState extends State<Report> {
     int selectedPin = data == null ? -1 : data['selectedPin'];
     LatLng point = data == null ? null : data['point'];
     EventList eventList = data == null ? null : data['eventList'];
-    _reportSelection = _reportSelection ==  '' ? selectedPin == -1 ? '' : _reportJson[selectedPin]['name'] : _reportSelection;
+    _reportSelection = _reportSelection ==  null ? selectedPin == -1 ? '' : _reportJson[selectedPin]['name'] : _reportSelection;
     if (point != null) {
       _getAddress(point).then((onValue) {
         if (addressController.text == '') {

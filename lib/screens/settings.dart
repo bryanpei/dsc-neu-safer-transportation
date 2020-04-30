@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:safer_transportation/components/divider.dart';
 import 'package:safer_transportation/components/menu.dart';
 import 'package:safer_transportation/components/text_update_tool.dart';
+import 'package:safer_transportation/services/authentification/auth.dart';
+import 'package:safer_transportation/services/data/UserInfo.dart';
 
 
 class Settings extends StatefulWidget {
@@ -50,8 +52,7 @@ class _SettingsState extends State<Settings> {
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
-                                  image: ExactAssetImage(
-                                      'assets/images/user-profile-pic.png'),
+                                  image: NetworkImage(UserInfo.avatarUrl),
                                   fit: BoxFit.fill,
                                 )),
                           ),
@@ -65,7 +66,7 @@ class _SettingsState extends State<Settings> {
                                   Padding(
                                     padding: EdgeInsets.all(2),
                                     child: Text(
-                                      'John',
+                                      UserInfo.firstName,
                                       style: TextStyle(
                                         fontSize: 15.0,
                                         color: Colors.black,
@@ -75,7 +76,7 @@ class _SettingsState extends State<Settings> {
                                   Padding(
                                     padding: EdgeInsets.all(2),
                                     child: Text(
-                                      'johndoe@gmail.com',
+                                      UserInfo.lastName,
                                       style: TextStyle(
                                         fontSize: 15.0,
                                         color: Colors.black,
@@ -85,7 +86,7 @@ class _SettingsState extends State<Settings> {
                                   Padding(
                                     padding: EdgeInsets.all(2),
                                     child: Text(
-                                      '+1(123)456 789',
+                                      UserInfo.phone,
                                       style: TextStyle(
                                         fontSize: 15.0,
                                         color: Colors.black,
@@ -304,8 +305,9 @@ class _SettingsState extends State<Settings> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    onTap: () {
-                      print("Signed out");
+                    onTap: () async {
+                        await AuthService().signOut();
+                        Navigator.popUntil(context, ModalRoute.withName('/'));
                     }),
               ),
             ) //Sign out
