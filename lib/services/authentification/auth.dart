@@ -5,13 +5,14 @@ class AuthService {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // Create user object based on FirebaseUser
+  // Create user object based on Firebase User
   User _userFromFirebaseUser(FirebaseUser user) {
     return user != null ? User(uid: user.uid) : null;
   }
 
 
   // auth change user stream
+  // null value if user is logged out, else logged in.
   Stream<User> get user {
     return _auth.onAuthStateChanged
         .map((FirebaseUser user) => _userFromFirebaseUser(user));
@@ -24,7 +25,7 @@ class AuthService {
       FirebaseUser user = result.user;
       return _userFromFirebaseUser(user);
     } catch(e) {
-      print(e.toString());
+      print(e.toString() + "Hello");
       return null;
     }
   }

@@ -31,6 +31,12 @@ class Menu extends StatelessWidget {
             },
           ),
           ListTile(
+            title: Text('alerts'),
+            onTap: () {
+              Navigator.pushNamed(context, '/alerts');
+            },
+          ),
+          ListTile(
             title: Text('report'),
             onTap: () {
               Navigator.pushNamed(context, '/report');
