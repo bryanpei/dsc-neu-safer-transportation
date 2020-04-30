@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:safer_transportation/components/divider.dart';
 import 'package:safer_transportation/components/menu.dart';
+import 'package:safer_transportation/components/text_update_tool.dart';
+
 
 class Settings extends StatefulWidget {
   @override
@@ -7,6 +10,10 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  String _homeAddress = "Add";
+  String _workAddress= "Add";
+  String _emergencyContact= "Add";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +35,6 @@ class _SettingsState extends State<Settings> {
         child: ListView(
           children: <Widget>[
             Container(
-
                 color: Colors.white,
                 child: Padding(
                   padding: EdgeInsets.all(20),
@@ -51,7 +57,7 @@ class _SettingsState extends State<Settings> {
                           ),
                         ),
                         Padding(
-                            //user info
+                          //user info
                             padding: EdgeInsets.all(10),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,15 +94,11 @@ class _SettingsState extends State<Settings> {
                                   ),
                                 ])),
                       ]),
-                )),  //profile pic and info
+                )), //profile pic and info
+            DivideLine(),
             Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(
-                color: Colors.grey,
-              ))),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -114,41 +116,50 @@ class _SettingsState extends State<Settings> {
                       ),
                       Padding(
                           padding: EdgeInsets.all(2),
-                          child: Row(
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 0),
-                                child: Icon(
-                                  Icons.home,
-                                  color: Colors.black,
-                                  size: 30,
+                          child: GestureDetector(
+                            child: Row(
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 0),
+                                  child: Icon(
+                                    Icons.home,
+                                    color: Colors.black,
+                                    size: 30,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 0, horizontal: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      "Home",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    Text(
-                                      '527 East Lake Ave.',
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.grey,
-                                          fontWeight: FontWeight.w300),
-                                    ),
-                                  ],
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 0, horizontal: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        "Home",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        '$_homeAddress',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.grey,
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
+                            onTap: () async{
+                              String value= await _textUpdateMethod(context);
+                              setState(() {
+                                _homeAddress= value;
+                              });
+                            },
                           )),
                       Padding(
                         padding: EdgeInsets.all(2),
@@ -166,51 +177,58 @@ class _SettingsState extends State<Settings> {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   vertical: 0, horizontal: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    "Work",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.grey,
-                                        fontWeight: FontWeight.w300),
-                                  ),
-                                ],
+                              child: GestureDetector(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      "Work",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Text(
+                                      '$_workAddress',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.w300),
+                                    ),
+                                  ],
+                                ),
+                                onTap: ()async{
+                                  String value= await _textUpdateMethod(context);
+                                setState(() {
+                                  _workAddress= value;
+                                });
+
+                                },
                               ),
                             ),
                           ],
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                        padding:
+                        EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                         child: InkWell(
-                          child: Text('More places',
-                            style:TextStyle(color: Colors.blue[800]),
+                          child: Text(
+                            'More places',
+                            style: TextStyle(color: Colors.blue[800]),
                           ),
-                          onTap: (){
+                          onTap: () {
                             print('add more places');
                           },
                         ),
                       )
                     ]),
               ),
-            ), //Places
+            ),
+            DivideLine(),//Places
             Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(
-                color: Colors.grey,
-              ))),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -241,49 +259,54 @@ class _SettingsState extends State<Settings> {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   vertical: 0, horizontal: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    "Emergency Contact",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.grey,
-                                        fontWeight: FontWeight.w300),
-                                  ),
-                                ],
+                              child: GestureDetector(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      "Emergency Contact",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Text(
+                                      '$_emergencyContact',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.w300),
+                                    ),
+                                  ],
+                                ),
+                                onTap: ()async{
+                                  String value= await _textUpdateMethod(context);
+                                  setState(() {
+                                    _emergencyContact= value;
+                                  });
+                                },
                               ),
                             ),
                           ])),
                     ]),
               ),
-            ),//Safety
+            ),
+            DivideLine(),//Safety
             Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(
-                color: Colors.grey,
-              ))),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                 child: InkWell(
-                  child: Text('Sign out',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),),
-                  onTap: (){
-                    print("Signed out");
-                  }
-                ),
+                    child: Text(
+                      'Sign out',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    onTap: () {
+                      print("Signed out");
+                    }),
               ),
             ) //Sign out
           ],
@@ -291,4 +314,14 @@ class _SettingsState extends State<Settings> {
       ),
     );
   }
+
+  _textUpdateMethod(BuildContext context) async {
+
+    return await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => TextUpdate()),
+    );
+  }
+
 }
+
