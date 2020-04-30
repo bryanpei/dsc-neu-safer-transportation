@@ -1,49 +1,74 @@
-// A single event_card widget
-
-
 import 'package:flutter/material.dart';
 import 'package:safer_transportation/services/models/event.dart';
-import 'event_info_card.dart';
-import 'event_Info.dart';
-import 'event_type.dart';
 
-class EventCard extends StatefulWidget {
+class EventCard extends StatelessWidget {
 
-  @override
-  _EventCardState createState() => _EventCardState();
-}
+  final Event event;
+  String imageUrlBase = 'assets/images/';
+  var imageNames = ['icon-car.png', 'icon-fight.png', 'icon-fire.png',
+    'icon-protest.png', 'icon-syringe.png', 'icon-other.png'];
 
-class _EventCardState extends State<EventCard> {
-  Map data = {};
-
-  List<EventInfo> info = [
-    EventInfo("Mary S", "18:00 Feb 26th, 2020", "123th Ave, NE, Seattle", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSLfY2HejD89RZfP0YlThgYKAwRqOKe8DNz_gAdZZ93Ts93Ux62&usqp=CAU", EventType.fire)
-  ];
+  EventCard({this.event});
 
   @override
   Widget build(BuildContext context) {
-    data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
-    Event event = data['event'];
-    event.updateEvent();
-    return Scaffold(
-    appBar: AppBar(
-      title: Text("Event Info"),
-      centerTitle: true,
-      backgroundColor: Colors.redAccent,
+    return Container(
+      height: 300,
+      width: 370,
+      padding: EdgeInsets.all(10.0),
+      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey,
+              blurRadius: 0.5,
+              offset: Offset(0.25, 0.25)
+          )
+        ]
       ),
-      body: Column(
-        children: info.map((event) => EventInfoCard(
-            info: event,
-            delete: (){
-              setState(() {
-                info.remove(event);
-                });
-        })).toList(),
-      ),
+      child: Column(
+              children: <Widget>[
+              Flexible(
+                child: Image.asset(
+                  imageUrlBase + imageNames[event.typeId],
+                  width: 60,
+                ),
+              ),
+
+              Flexible(
+                child: ListTile(
+                  title: Text("Event Report Time: "),
+                  subtitle: Text(event.datetime.toString()),
+                ),
+              ),
+
+              Flexible(
+                child: ListTile(
+                  title: Text("Event Report Location: "),
+                  subtitle: Text(event.locationH),
+                ),
+              ),
+
+              Flexible(
+                child: ListTile(
+                  title: Text("Reported by: "),
+                  subtitle: Text(
+                      event.reportUserId == null ? 'Anonymous' : event.reportUserId
+                  ),
+                ),
+              ),
+
+              Flexible(
+                child: Center(
+                  child: Image(
+                    image: NetworkImage(event.imageUrl),
+                  ),
+                ),
+              ),
+            ],
+          ),
     );
   }
 }
-
-
-
-

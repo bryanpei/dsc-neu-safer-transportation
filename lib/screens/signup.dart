@@ -25,14 +25,7 @@ class _SignUpState extends State<SignUp> {
     return loading ? Loading() : Scaffold(
       resizeToAvoidBottomPadding: true,
 
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Image.asset(
-              'assets/images/white.jpg', // Background image goes here
-              fit: BoxFit.cover
-          ),
-          Column(
+      body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
@@ -209,8 +202,6 @@ class _SignUpState extends State<SignUp> {
               ),
             ],
           ),
-        ],
-      ),
     );
   }
 
